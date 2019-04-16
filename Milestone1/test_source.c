@@ -1,3 +1,13 @@
+/*
+ * COURSE: EMBEDDED SYSTEMS, HRY411 
+ * 
+ * test_source.c
+ *
+ * Milestone1
+ * 
+ * Authors : Stefanos Kalogerakis, Aris Zervakis
+ */ 
+
 #pragma config(Sensor, S1,     LIGHT,          sensorLightActive)
 #pragma config(Motor,  motorA,          LMOTOR,        tmotorNormal, PIDControl, encoder)
 #pragma config(Motor,  motorB,          RMOTOR,        tmotorNormal, PIDControl, encoder)
