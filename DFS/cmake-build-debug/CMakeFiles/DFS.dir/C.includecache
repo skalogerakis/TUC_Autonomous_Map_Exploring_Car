@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/stefanos/TUC_Projects/TUC_Autonomous_Map_Exploring_Car/DFS/main.c
+stdio.h
+-
+malloc.h
+-
+stdlib.h
+-
+
