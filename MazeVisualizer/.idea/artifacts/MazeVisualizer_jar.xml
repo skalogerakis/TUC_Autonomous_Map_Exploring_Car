@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MazeVisualizer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MazeVisualizer_jar</output-path>
+    <root id="archive" name="MazeVisualizer.jar">
+      <element id="module-output" name="MazeVisualizer" />
+    </root>
+  </artifact>
+</component>
