@@ -11,56 +11,51 @@ import javax.swing.*;
 import java.awt.*;
 
 
+
 public class Maze extends JFrame
 {
-    public int testSize = 10;
-    public static final int CELL_WIDTH = 50; // maze square size
-    public static final int MARGIN = 50; // buffer between window edge and maze
-    public static final int DOT_SIZE = 10; // size of maze solution dot
-    public int CELL_DYN_WIDTH;
-    public int CELL_DYN_HEIGHT;
-    private boolean[] path; // array representing the unique path solution
+    private static final int CELL_WIDTH = 50; // maze square size
+    private static final int MARGIN = 50; // buffer between window edge and maze
+    private static final int DOT_SIZE = 10; // size of maze solution dot
+    protected int[][] maze;
 
+    public Maze(int[][] myMaze){
+        maze = myMaze;
+    }
 
     /*
      * Static declaration of initial maze.TODO change that when we learn the final format
+     * THIS WAS OUR INITIAL APPROACH
      */
-    public int[][] mazeStatic={							// initialize the maze 2D array
-            {1,0,1,0,0,1,0,0,0,1},
-            {1,0,1,1,1,1,1,1,1,1},
-            {1,0,1,0,0,0,0,1,0,1},
-            {1,1,1,0,0,0,0,0,0,0},
-            {0,0,1,1,1,1,1,1,1,0},
-            {0,0,0,0,1,0,0,0,1,1},
-            {0,0,0,0,1,1,0,0,0,0},
-            {0,0,0,0,0,1,0,0,1,0},
-            {0,0,0,0,1,1,1,1,1,2},
-            {0,0,0,0,0,1,0,1,1,0}};
+//    public int[][] mazeStatic={							// initialize the maze 2D array
+//            {1,0,1,0,0,1,0,0,0,1},
+//            {1,0,1,1,1,1,1,1,1,1},
+//            {1,0,1,0,0,0,0,1,0,1},
+//            {1,1,1,0,0,0,0,0,0,0},
+//            {0,0,1,1,1,1,1,1,1,0},
+//            {0,0,0,0,1,0,0,0,1,1},
+//            {0,0,0,0,1,1,0,0,0,0},
+//            {0,0,0,0,0,1,0,0,1,0},
+//            {0,0,0,0,1,1,1,1,1,2},
+//            {0,0,0,0,0,1,0,1,1,0}};
 
-    public void drawTester(Graphics g){
 
+    protected void drawTester(Graphics g){
+
+        FileInputReader fr = new FileInputReader();
         g.setColor(Color.BLACK);
-        //CELL_DYN_HEIGHT = g.getWidth();
-        for(int i=0;i< testSize;i++ ){
-            for(int j=0;j< testSize;j++){
-                //System.out.print("\t" + mazeStatic[i][j]);
 
+        for(int i=0;i< fr.finArrSize;i++ ){
+            for(int j=0;j< fr.finArrSize;j++){
 
-                if(mazeStatic[i][j]!=1 && mazeStatic[i][j]!=2){
+                //Unless we find path or termination point continue
+                if(maze[i][j]!=1 && maze[i][j]!=2){
                     continue;
                 }
 
-//                g.drawLine(j * CELL_WIDTH + MARGIN, i * CELL_WIDTH
-//                        + MARGIN, j * CELL_WIDTH + MARGIN, i * CELL_WIDTH
-//                        + MARGIN);
-
-
                 try{
-                    if(mazeStatic[i+1][j] != 0 ){        //THIS IS SOUTH CASE
-                        //System.out.println("SOUTH Coor X "+i+" Coor Y "+j+ " VAL "+ mazeStatic[i+1][j]);
-                        g.drawLine(j * CELL_WIDTH + MARGIN, i * CELL_WIDTH
-                                + MARGIN, j * CELL_WIDTH + MARGIN, (i+1) * CELL_WIDTH
-                                + MARGIN);
+                    if(maze[i+1][j] != 0 ){        //THIS IS SOUTH CASE
+                        g.drawLine(j * CELL_WIDTH + MARGIN, i * CELL_WIDTH + MARGIN, j * CELL_WIDTH + MARGIN, (i+1) * CELL_WIDTH + MARGIN);
                     }
 
 
@@ -69,35 +64,29 @@ public class Maze extends JFrame
                 }
 
                 try{
-                    if(mazeStatic[i][j+1] != 0){        //THIS IS WEST CASE
+                    if(maze[i][j+1] != 0){        //THIS IS WEST CASE
                         //System.out.println("EAST Coor X "+i+" Coor Y "+j+ " VAL "+ mazeStatic[i][j+1]);
-                        g.drawLine((j) * CELL_WIDTH + MARGIN, i * CELL_WIDTH
-                                + MARGIN, (j+1) * CELL_WIDTH + MARGIN, i * CELL_WIDTH
-                                + MARGIN);
+                        g.drawLine((j) * CELL_WIDTH + MARGIN, i * CELL_WIDTH + MARGIN, (j+1) * CELL_WIDTH + MARGIN, i * CELL_WIDTH + MARGIN);
                     }
 
                 }catch(ArrayIndexOutOfBoundsException oe){
 
                 }
 
-                if(mazeStatic[i][j]==2){    //When array has the value 2, it means we are on termination point. DOT_SIZE/2 is used in order to find the circle of the circle we are drawing
+                if(maze[i][j]==2){    //When array has the value 2, it means we are on termination point. DOT_SIZE/2 is used in order to find the circle of the circle we are drawing
                     g.setColor(Color.RED);
-                    g.fillOval(j * CELL_WIDTH + MARGIN-(DOT_SIZE/2), i * CELL_WIDTH
-                            + MARGIN-(DOT_SIZE/2), DOT_SIZE, DOT_SIZE);
+                    g.fillOval(j * CELL_WIDTH + MARGIN-(DOT_SIZE/2), i * CELL_WIDTH + MARGIN-(DOT_SIZE/2), DOT_SIZE, DOT_SIZE);
                     g.setColor(Color.BLACK);
                 }
 
 
             }
-            //System.out.println("");
         }
-        //System.out.println("\n\n");
+
     }
 
-    public Dimension windowSize() // returns the ideal size of the window (for
-    // JScrollPanes)
+    protected Dimension windowSize() // returns the ideal size of the window (for JScrollPanes)
     {
-        return new Dimension(CELL_WIDTH + MARGIN * 2, CELL_WIDTH + MARGIN
-                * 2);
+        return new Dimension(CELL_WIDTH + MARGIN * 2, CELL_WIDTH + MARGIN * 2);
     }
 }

@@ -15,7 +15,7 @@ class MazePanel extends JPanel
 {
     private Maze maze; // the maze object
 
-    public MazePanel(Maze theMaze)
+    protected MazePanel(Maze theMaze)
     {
         maze = theMaze;
     }
@@ -24,7 +24,7 @@ class MazePanel extends JPanel
     // that the panel needs to be displayed or refreshed.
     // Anything you want drawn on the panel should be drawn
     // in this method.
-    public void paintComponent(Graphics page)
+    protected void paintComponent(Graphics page)
     {
         super.paintComponent(page);
         setBackground(Color.white); // set preferredSize for JScrollPane
