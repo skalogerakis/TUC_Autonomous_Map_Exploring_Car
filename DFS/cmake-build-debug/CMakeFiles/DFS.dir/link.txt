@@ -1,1 +1,1 @@
-/usr/bin/cc -g   CMakeFiles/DFS.dir/main.c.o  -o DFS 
+/usr/bin/cc -g  -Wl,--enable-auto-import CMakeFiles/DFS.dir/main.c.o  -o DFS.exe -Wl,--out-implib,libDFS.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

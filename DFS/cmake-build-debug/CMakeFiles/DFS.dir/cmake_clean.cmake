@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/DFS.dir/main.c.o"
   "DFS.pdb"
-  "DFS"
+  "DFS.exe"
+  "libDFS.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

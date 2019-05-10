@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/stefanos/TUC_Projects/TUC_Autonomous_Map_Exploring_Car/DFS/main.c" "/home/stefanos/TUC_Projects/TUC_Autonomous_Map_Exploring_Car/DFS/cmake-build-debug/CMakeFiles/DFS.dir/main.c.o"
+  "/cygdrive/d/TUC_PROJECT/TUC_Autonomous_Map_Exploring_Car/DFS/main.c" "/cygdrive/d/TUC_PROJECT/TUC_Autonomous_Map_Exploring_Car/DFS/cmake-build-debug/CMakeFiles/DFS.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
