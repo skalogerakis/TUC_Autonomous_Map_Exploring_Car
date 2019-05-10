@@ -1,0 +1,6 @@
+*** Code was produced in the following java edition.
+*** Every edition above that should work fine
+
+java version "1.8.0_161"
+java(TM) SE Runtime Enviroment (1.8.0_161-b12)
+Java HotSpot(TM) 64-Bit Server VM(build 25.161-b12, mixed mode)
