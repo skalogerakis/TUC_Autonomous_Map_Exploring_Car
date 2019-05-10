@@ -20,9 +20,10 @@ import static java.lang.System.exit;
 public class FileInputReader {
 
     /*
-        We initialize here with value 10 which is the max size of a possible array.
+        We initialize here with value 20 which is the max size of a possible array.
+        If you wish to create a larger array that 20*20 change that value
      */
-    protected int finArrSize = 10;
+    protected int finArrSize = 20;
     private ArrayList<Integer> data;
 
     /*
