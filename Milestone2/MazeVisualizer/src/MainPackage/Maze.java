@@ -14,8 +14,8 @@ import java.awt.*;
 
 public class Maze extends JFrame
 {
-    private static final int CELL_WIDTH = 50; // maze square size
-    private static final int MARGIN = 50; // buffer between window edge and maze
+    private static final int CELL_WIDTH = 70; // maze square size
+    private static final int MARGIN = 70; // buffer between window edge and maze
     private static final int DOT_SIZE = 10; // size of maze solution dot
     protected int[][] maze;
 

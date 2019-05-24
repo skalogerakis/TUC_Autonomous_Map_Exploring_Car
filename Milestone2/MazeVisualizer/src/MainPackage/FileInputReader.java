@@ -20,10 +20,10 @@ import static java.lang.System.exit;
 public class FileInputReader {
 
     /*
-        We initialize here with value 20 which is the max size of a possible array.
-        If you wish to create a larger array that 20*20 change that value
+        Our final array size is 9 * 9 so we defined static array size 9.
+        If you wish you can change that from here
      */
-    protected int finArrSize = 20;
+    protected int finArrSize = 9;
     private ArrayList<Integer> data;
 
     /*
@@ -43,17 +43,19 @@ public class FileInputReader {
 
            try (final BufferedReader reader = new BufferedReader(fileReader)) {
                while ((line = reader.readLine()) != null) {//try read line from reader
+
                    String[] split = line.split(",");
 
-                   for (int i = 0; i < split.length; i++) {
-                       data.add(Integer.parseInt(split[i].trim()));
+                   //First line contains giberish information, so update from line two
+                   if(lineNum > 1){
+                       //We are only interested about 2nd column info which contains the info about all the coordinates
+                       data.add(Integer.parseInt(split[1].trim()));
                    }
-                   //Update the size of symmetric array after find the size of the first line
-                   if (lineNum == 1) {
-                       finArrSize = split.length;
-                   }
+
                    lineNum++;
                }
+           } catch (ArrayIndexOutOfBoundsException ao){
+
            } catch (NumberFormatException we){
                System.err.println("Something was wrong with data from input file. REMINDER: Data must be integers");
                exit(-1);
@@ -77,6 +79,7 @@ public class FileInputReader {
         int column = 0;
 
         parse(srcFile);
+
 
         for(int k=0; k < data.size();k++){
 

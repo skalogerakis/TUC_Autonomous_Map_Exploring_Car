@@ -35,7 +35,7 @@ public class MainApp
 
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setResizable(false);                                        //Window is not resisable
-            frame.setSize(fr.finArrSize * 60, fr.finArrSize * 60);    //Window size works depending on the size of the array
+            frame.setSize(fr.finArrSize * 80, fr.finArrSize * 80);    //Window size works depending on the size of the array
             frame.add(panel, BorderLayout.CENTER);
             frame.setVisible(true);                                             //make window visible
 
